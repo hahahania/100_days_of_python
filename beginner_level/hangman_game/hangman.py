@@ -9,13 +9,10 @@ mistakes = 0
 end_game = False
 
 while not end_game:
-    if mistakes == 6 or "_" not in underscores:
-        end_game = True
-
     user_input = (input("Please, enter a letter\t")).lower()
 
     if user_input in underscores:
-        print(f"You have already guesses {user_input}")
+        print(f"You have already guessed {user_input}")
 
     if user_input in chosen_word:
         for i in range(len(chosen_word)):
@@ -34,5 +31,11 @@ while not end_game:
         print("".join(underscores))
         print(f"Your status look like that:\n{stages[mistakes]}")
 
-    sleep(3)
+    sleep(2)
     os.system("clear")
+    if mistakes == 6:
+        print(f"Game over, the chosen word was {''.join(chosen_word)}")
+        end_game = True
+    if "_" not in underscores:
+        print(f'Congratulations! You won! The word was : {"".join(chosen_word)}')
+        end_game = True
