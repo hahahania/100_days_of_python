@@ -31,7 +31,7 @@ while not end_game:
         print("".join(underscores))
         print(f"Your status look like that:\n{stages[mistakes]}")
 
-    sleep(2)
+    sleep(4)
     os.system("clear")
     if mistakes == 6:
         print(f"Game over, the chosen word was {''.join(chosen_word)}")
