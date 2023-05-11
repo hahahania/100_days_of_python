@@ -58,13 +58,6 @@ class Machine:
             return True
 
 
-data = [
-    {"name": "espresso", "price": 1.50, "water": 50, "coffee": 18, "milk": 0},
-    {"name": "latte", "price": 2.50, "water": 200, "coffee": 24, "milk": 150},
-    {"name": "cappuccino", "price": 3, "water": 250, "coffee": 24, "milk": 100},
-]
-
-
 latte = Drink("latte", 2.50, 200, 24, 150)
 espresso = Drink("espresso", 1.50, 50, 18, 0)
 cappuccino = Drink("cappuccino", 3.0, 250, 24, 100)
