@@ -8,11 +8,7 @@
 
 import turtle as t
 from time import sleep
-
-score = 0
-snake = t.Turtle("square")
-snake.penup()
-snake.color("red")
+from snake import Snake
 
 screen = t.Screen()
 screen.screensize(600, 600)
@@ -22,44 +18,19 @@ food = t.Turtle()
 food.shape("circle")
 food.color("blue")
 
-pen = t.Turtle()
-pen.speed(0)
-pen.shape("square")
-pen.color("white")
-pen.penup()
-pen.hideturtle()
-pen.goto(0, 290)
-pen.write(f"Score : {score}", align="center", font=("candara", 24, "bold"))
-
-
-def up():
-    if snake.heading() != 270:
-        snake.setheading(90)
-
-
-def left():
-    if snake.heading() != 0:
-        snake.setheading(180)
-
-
-def right():
-    if snake.heading() != 180:
-        snake.setheading(0)
-
-
-def down():
-    if snake.heading() != 90:
-        snake.setheading(270)
-
+snake = Snake()
 
 screen.listen()
-screen.onkey(up, "Up")
-screen.onkey(left, "Left")
-screen.onkey(right, "Right")
-screen.onkey(down, "Down")
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+screen.onkey(snake.down, "Down")
 
 game = True
 while game:
-    snake.forward(10)
-    sleep(0.03)
+    screen.update()
+    sleep(0.05)
+    snake.move()
+
+
 screen.exitonclick()
