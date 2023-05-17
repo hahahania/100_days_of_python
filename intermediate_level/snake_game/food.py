@@ -10,10 +10,12 @@ class Food:
         self.create()
 
     def move_food(self):
+        self.food.hideturtle()
         self.x = randint(-270, 270)
         self.y = randint(-270, 270)
         self.food.goto((self.x,self.y))
-
+        self.food.showturtle()
+        
     def create(self):
         self.food = t.Turtle("circle")
         self.food.color("blue")
