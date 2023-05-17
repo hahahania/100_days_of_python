@@ -3,11 +3,14 @@ import turtle as t
 STARTING_POS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
 
+
 class Snake:
     def __init__(self) -> None:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
+        self.x = self.head.xcor()
+        self.y = self.head.ycor()
 
     def create_snake(self):
         for pos in STARTING_POS:
@@ -39,3 +42,4 @@ class Snake:
     def down(self):
         if self.head.heading() != 90:
             self.head.setheading(270)
+

@@ -1,16 +1,24 @@
 import turtle as t
 from random import randint
-class Food():
+
+
+class Food:
     def __init__(self) -> None:
-        self.x_cor = 0 
-        self.y_cor = 0
+        self.x = 0
+        self.y = 0
+        self.food = None
+        self.create()
+
+    def move_food(self):
+        self.x = randint(-270, 270)
+        self.y = randint(-270, 270)
+        self.food.goto((self.x,self.y))
 
     def create(self):
-        self.x_cor = randint(-270,270)
-        self.y_cor = randint(-270,270)
-        food = t.Turtle('circle')
-        food.color('blue')
-        food.penup()
-        food.goto((self.x_cor,self.y_cor))
-    
+        self.food = t.Turtle("circle")
+        self.food.color("blue")
+        self.food.penup()
+        self.move_food()
+
+
     
