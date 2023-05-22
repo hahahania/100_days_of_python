@@ -11,15 +11,31 @@ def random_color():
 
 colormode(255)
 
-class Car(Turtle):
+STARTING_MOVE_DISTANCE = 5
+MOVE_INCREAMENT = 10
+
+class Car():
     def __init__(self):
-        super().__init__()
-        self.shape('square')
-        self.shapesize(stretch_len=2, stretch_wid=1)
-        self.penup()
-        self.goto((280,random.randint(-270,290)))
-        self.color(random_color())
+        self.all_cars = []
+        self.vel = STARTING_MOVE_DISTANCE
 
-    def move(self, vel):
-        self.forward(vel)
+    def create_car(self):
+        random_num = random.randint(1,6)
+        if random_num == 6:
+            car = Turtle('square')
+            car.shapesize(stretch_len=2, stretch_wid=1)
+            car.penup()
+            car.goto((280,random.randint(-250,280)))
+            car.color(random_color())
+            self.all_cars.append(car)
 
+    def move(self):
+        for car in self.all_cars:
+            car.backward(self.vel)
+
+    def increase_speed(self):
+        self.vel += MOVE_INCREAMENT
+
+    def game_over(self,player):
+        for car in self.all_cars:
+            return True if car.distance(player)<25 else False
