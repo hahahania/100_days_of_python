@@ -9,7 +9,7 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
-        self.score = 0
+
 
     def add_segment(self):
         segment = t.Turtle("square")
