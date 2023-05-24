@@ -20,14 +20,11 @@ guessed_states = []
 while len(guessed_states)<50:
     answer = t.textinput(f'{len(guessed_states)}/50 US States', 'Enter name of the state: ').title()
     if answer == 'Exit':
-        unguessed = []
-        for state in states:
-            if state not in guessed_states:
-                unguessed.append(state)
+        unguessed = [state for state in states if state not in guessed_states]
         to_learn = pandas.DataFrame(unguessed)
         to_learn.to_csv('states_to_learn.csv')
         break
-    
+
     if (states.eq(answer)).any():
         guessed_states.append(answer)
         chosen_state = data[data.state==answer]
