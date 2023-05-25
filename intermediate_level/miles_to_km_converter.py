@@ -20,9 +20,9 @@ km = tk.Label(text='km')
 km.grid(row=1,column=2)
 
 def convert():
-    m = float(text_input.get())
-    converted = str(round(m*1.6, 1))
-    result.config(text=converted)
+    miles = float(text_input.get())
+    kilomiters = str(round(miles*1.609, 1))
+    result.config(text=kilomiters)
     
 
 button = tk.Button(text='Convert', command=convert)
