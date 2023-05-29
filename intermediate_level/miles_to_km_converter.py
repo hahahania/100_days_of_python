@@ -18,7 +18,6 @@ result.grid(row=1,column=1)
 
 km = tk.Label(text='km')
 km.grid(row=1,column=2)
-
 def convert():
     miles = float(text_input.get())
     kilomiters = str(round(miles*1.609, 1))
